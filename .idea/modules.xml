@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/kimono-mi.iml" filepath="$PROJECT_DIR$/.idea/kimono-mi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kimono-mi.iml" filepath="$PROJECT_DIR$/.idea/kimono-mi.iml" group="kimono-mi" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kimono-mi.integrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/kimono-mi.integrationTest.iml" group="kimono-mi" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kimono-mi.main.iml" filepath="$PROJECT_DIR$/.idea/modules/kimono-mi.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kimono-mi.test.iml" filepath="$PROJECT_DIR$/.idea/modules/kimono-mi.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kimono-mi_integrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/kimono-mi_integrationTest.iml" group="kimono-mi" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kimono-mi_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kimono-mi_main.iml" group="kimono-mi" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kimono-mi_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kimono-mi_test.iml" group="kimono-mi" />
     </modules>
   </component>
 </project>

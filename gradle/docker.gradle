@@ -1,0 +1,97 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-docker-plugin:6.3.0'
+    }
+}
+
+apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
+
+import com.bmuschko.gradle.docker.tasks.image.*
+ext {
+    dockerTag = "grails-sample/${project.name}:${project.version}".toLowerCase()
+    dockerBuildDir = mkdir("${buildDir}/docker")
+}
+
+task prepareDocker(type: Copy, dependsOn: assemble) {
+    description = 'Copy files from src/main/docker and application jar to Docker temporal build directory'
+    group = 'Docker'
+
+    from 'src/main/docker'
+    from project.jar
+
+    into dockerBuildDir
+}
+
+task createDockerfile(type: Dockerfile, dependsOn: prepareDocker) {
+    description = 'Create a Dockerfile file'
+    group = 'Docker'
+
+    destFile = project.file("${dockerBuildDir}/Dockerfile")
+
+    from 'openjdk:8u151-jdk-alpine'
+
+    exposePort 8080
+
+    workingDir '/app'
+
+    copyFile jar.archiveName, 'application.jar'
+    copyFile 'app-entrypoint.sh', 'app-entrypoint.sh'
+    runCommand 'chmod +x app-entrypoint.sh'
+
+    entryPoint '/app/app-entrypoint.sh'
+}
+task buildImage(type: DockerBuildImage, dependsOn: createDockerfile) {
+    description = 'Create Docker image to run the Grails application'
+    group = 'Docker'
+
+    inputDir = file(dockerBuildDir)
+    images.add(dockerTag)
+}
+
+
+/**
+ext {
+    dockerTag = "mrhaki/${project.name}:${project.version}".toLowerCase()
+
+    // Base name for Docker container with Grails application.
+    dockerContainerName = 'grails-sample'
+    dockerBuildDir = mkdir("${buildDir}/docker")
+    dockerBuildGroup = 'Docker'
+}
+docker {
+    // Set Docker host URL based on existence of environment
+    // variable DOCKER_HOST.
+    url = System.env.DOCKER_HOST ?
+            System.env.DOCKER_HOST.replace("tcp", "https") :
+            'unix:///var/run/docker.sock'
+}
+import com.bmuschko.gradle.docker.tasks.image.*
+import com.bmuschko.gradle.docker.tasks.container.DockerCreateContainer
+import com.bmuschko.gradle.docker.tasks.container.DockerStartContainer
+import com.bmuschko.gradle.docker.tasks.container.DockerStopContainer
+import com.bmuschko.gradle.docker.tasks.container.DockerRemoveContainer
+task dockerRepackage(type: org.springframework.boot.gradle.tasks.bundling.BootJar, dependsOn: jar) {
+    description = 'Repackage Grails application JAR to make it runnable.'
+    ext {
+        dockerJar = file("${dockerBuildDir}/${jar.archiveName}")
+    }
+    outputFile = dockerJar
+    withJarTask = jar
+}
+task createDockerfile(type: Dockerfile) {
+    into dockerBuildDir
+    from 'src/main/docker'
+    destFile = file("${dockerBuildDir}/Dockerfile")
+    from 'java:8'
+    exposePort 8080
+    environmentVariable 'GRAILS_ENV', 'production'
+    workingDir '/app'
+}
+task buildMyAppImage(type: DockerBuildImage) {
+    description = 'Create Docker image with Grails application.'
+    inputDir = file("${buildDir}/docker")
+    images.add('test/kimono-mi:latest')
+}**/
