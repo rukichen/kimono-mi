@@ -12,7 +12,7 @@ apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
 import com.bmuschko.gradle.docker.tasks.image.*
 ext {
     dockerTag = "rukichendo/${project.name}:${project.version}".toLowerCase()
-    dockerBuildDir = mkdir("${buildDir}/docker")
+    dockerBuildDir = mkdir("docker")
 }
 
 task prepareDocker(type: Copy, dependsOn: assemble) {
