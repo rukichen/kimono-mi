@@ -173,8 +173,8 @@
     <orderEntry type="library" name="Gradle: com.sun.xml.bind:jaxb-impl:2.3.1" level="project" />
     <orderEntry type="library" name="Gradle: javax.validation:validation-api:2.0.1.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jaxb:txw2:2.3.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.9" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" name="Gradle: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
     <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.3" level="project" />
@@ -182,8 +182,8 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.9" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-annotations-api:9.0.26" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.ant:ant-antlr:1.9.13" level="project" />
     <orderEntry type="library" name="Gradle: opensymphony:sitemesh:2.4.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.ant:ant-antlr:1.9.13" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish:javax.el:3.0.0" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.11" level="project" />
     <orderEntry type="library" name="Gradle: commons-validator:commons-validator:1.6" level="project" />
