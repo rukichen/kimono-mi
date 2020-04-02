@@ -1,0 +1,6 @@
+#Fri, 20 Mar 2020 14:10:10 +0100
+
+info.app.version=0.1
+info.app.name=kimono-mi
+grails.env=production
+info.app.grailsVersion=4.0.1
